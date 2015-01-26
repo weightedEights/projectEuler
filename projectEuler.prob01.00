@@ -10,6 +10,17 @@
 # 2015Jan26
 # PyCharm 4.0.4
 
+def checkDiv(n,m):
+    if n % m == 0:
+        return n
+    else:
+        return 0
+
 multSum = 0
 
-print multSum
+for x in xrange(1000):
+    multSum += checkDiv(x,3) + checkDiv(x,5) - checkDiv(x,15)
+    #print x
+    #print multSum
+
+print "Answer: ", multSum
