@@ -44,7 +44,7 @@ Pyramid should "flatten" from the bottom up, with the largest sum emerging from 
 
 def main():
 
-    pyraList = loadprob("p18.test.txt")
+    pyraList = loadprob("p18.triangle.txt")
 
     topSum = compAdd(pyraList)
 
@@ -63,15 +63,14 @@ def compAdd(array):
 
     for i, row in enumerate(array):
         for j, val in enumerate(row[:-1]):
-            print(i, row, max((row[j], row[j+1])))
-
+            array[i+1][j] += max((row[j], row[j+1]))
 
     return array
 
 
 def displayResult(data):
 
-    pass
+    print(data[-1])
 
 
 if __name__ == main():
