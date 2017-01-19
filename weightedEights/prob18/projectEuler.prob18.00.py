@@ -46,21 +46,31 @@ def main():
 
     pyraList = loadprob("p18.test.txt")
 
-    displayResult(pyraList)
+    topSum = compAdd(pyraList)
+
+    displayResult(topSum)
 
 
 def loadprob(file):
         with open(file, 'r') as fin:
-            listVals = [num.rstrip() for num in fin.readlines()]
 
-        pyraVals = []
+            listVals = [map(int, num.split()) for num in fin]
 
-        return pyraVals
+        return listVals
+
+
+def compAdd(array):
+
+    return array
 
 
 def displayResult(data):
 
     print(data)
+
+    for i in reversed(data):
+        for n in reversed(i):
+            print(n)
 
 
 if __name__ == main():
