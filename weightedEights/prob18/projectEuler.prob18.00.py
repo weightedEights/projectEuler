@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+from __future__ import print_function
+
 """
 By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
 
@@ -40,13 +42,25 @@ Pyramid should "flatten" from the bottom up, with the largest sum emerging from 
 """
 
 
-from __future__ import print_function
-import os
-
-
 def main():
 
-    print("poop")
+    pyraList = loadprob("p18.test.txt")
+
+    displayResult(pyraList)
+
+
+def loadprob(file):
+        with open(file, 'r') as fin:
+            listVals = [num.rstrip() for num in fin.readlines()]
+
+        pyraVals = []
+
+        return pyraVals
+
+
+def displayResult(data):
+
+    print(data)
 
 
 if __name__ == main():
