@@ -56,21 +56,22 @@ def loadprob(file):
 
             listVals = [map(int, num.split()) for num in fin]
 
-        return listVals
+        return listVals[::-1]
 
 
 def compAdd(array):
+
+    for i, row in enumerate(array):
+        for j, val in enumerate(row[:-1]):
+            print(i, row, max((row[j], row[j+1])))
+
 
     return array
 
 
 def displayResult(data):
 
-    print(data)
-
-    for i, n in enumerate(reversed(data[:-1])):
-        for m in reversed(data):
-            print(i, n, m)
+    pass
 
 
 if __name__ == main():
