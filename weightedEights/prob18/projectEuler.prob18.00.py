@@ -68,8 +68,9 @@ def displayResult(data):
 
     print(data)
 
-    for i in reversed(data):
-        print(i)
+    for i, n in enumerate(reversed(data[:-1])):
+        for m in reversed(data):
+            print(i, n, m)
 
 
 if __name__ == main():
