@@ -26,7 +26,7 @@ Approach is this:
 
 def main():
 
-    nameList = loadprob("names.test.txt")
+    nameList = loadprob("p022_names.txt")
 
     parsedList = parseShit(nameList)
 
@@ -46,14 +46,17 @@ def parseShit(nameList):
 
     alphaList = [name for name in sorted(nameList)]
 
-    return alphaList
+    nameSum = 0
+
+    for i, name in enumerate(alphaList):
+        nameSum += (i+1) * len(name)
+        print(i, name, (i+1) * len(name), nameSum)
+
+    return nameSum
 
 def displayResult(data):
 
     print(data)
-
-    for i, name in enumerate(data):
-        print(i, name)
 
 
 if __name__ == main():
