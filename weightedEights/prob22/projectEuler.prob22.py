@@ -28,9 +28,9 @@ def main():
 
     nameList = loadprob("names.test.txt")
 
-    parseShit()
+    parsedList = parseShit(nameList)
 
-    displayResult(nameList)
+    displayResult(parsedList)
 
 
 def loadprob(file):
@@ -42,13 +42,18 @@ def loadprob(file):
     return parsedList
 
 
-def parseShit():
+def parseShit(nameList):
 
-    pass
+    alphaList = [name for name in sorted(nameList)]
+
+    return alphaList
 
 def displayResult(data):
 
     print(data)
+
+    for i, name in enumerate(data):
+        print(i, name)
 
 
 if __name__ == main():
