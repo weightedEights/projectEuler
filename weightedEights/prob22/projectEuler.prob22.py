@@ -28,7 +28,35 @@ def main():
 
     nameList = loadprob("p022_names.txt")
 
-    parsedList = parseShit(nameList)
+    charWeights = {
+        "A" : 1,
+        "B" : 2,
+        "C" : 3,
+        "D" : 4,
+        "E" : 5,
+        "F" : 6,
+        "G" : 7,
+        "H" : 8,
+        "I" : 9,
+        "J" : 10,
+        "K" : 11,
+        "L" : 12,
+        "M" : 13,
+        "N" : 14,
+        "O" : 15,
+        "P" : 16,
+        "Q" : 17,
+        "R" : 18,
+        "S" : 19,
+        "T" : 20,
+        "U" : 21,
+        "V" : 22,
+        "W" : 23,
+        "X" : 24,
+        "Y" : 25,
+        "Z" : 26}
+
+    parsedList = parseShit(nameList, charWeights)
 
     displayResult(parsedList)
 
@@ -42,17 +70,13 @@ def loadprob(file):
     return parsedList
 
 
-def parseShit(nameList):
+def parseShit(nameList, charWeights):
 
     alphaList = [name for name in sorted(nameList)]
 
-    nameSum = 0
+    nameSum = [sum([(i + 1) * charWeights[c] for c in name]) for i, name in enumerate(alphaList)]
 
-    for i, name in enumerate(alphaList):
-        nameSum += (i+1) * len(name)
-        print(i, name, (i+1) * len(name), nameSum)
-
-    return nameSum
+    return sum(nameSum)
 
 def displayResult(data):
 
