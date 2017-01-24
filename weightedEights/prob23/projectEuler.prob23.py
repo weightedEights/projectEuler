@@ -56,9 +56,14 @@ def isAbundant(num):
     return num
 
 
+def divisors(num):
+
+    return num
+
+
 def listAbundants(upperLim):
 
-    abundants = [x for x in xrange(1, upperLim +1) if isAbundant(x)]
+    abundants = [divisors(x) for x in xrange(1, upperLim +1) if isAbundant(x)]
 
     return abundants
 
