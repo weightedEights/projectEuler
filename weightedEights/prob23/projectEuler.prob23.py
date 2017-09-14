@@ -25,8 +25,8 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 
 """
 
-Approach is this: Build list of abundant numbers less that 28123. The largest divisors can only be less than
-sqrt(28123), so build that list and search for divi
+Approach is this: Generate list of abundant numbers up to 28123/2. Generate new list of the combination of sums of the
+abundant numbers. Sum the numbers from 0-28123 which are not on the abundant sum list. 
 
 """
 
@@ -35,42 +35,46 @@ def main():
 
     # loadprob("p022_names.txt")
 
-    upperLimit = 24
+    upper_limit = 48
 
-    parsedSum = listAbundants(upperLimit)
+    divisor_list = [{x: list_divisors(x)} for x in range(upper_limit + 1) if x % 2 == 0 and x != 0]
 
-    displayResult(parsedSum, upperLimit)
+    abundants_list = [x for x in divisor_list if is_abundant(x)]
+
+    display_result(upper_limit, divisor_list, abundants_list)
 
 
 def loadprob(file):
     with open(file, 'r') as fin:
-        nameList = [name.split(",") for name in fin]
+        name_list = [name.split(",") for name in fin]
 
-    parsedList = [name[1:-1] for name in nameList[0]]
+    parsed_list = [name[1:-1] for name in name_list[0]]
 
-    return parsedList
-
-
-def isAbundant(num):
-
-    return num
+    return parsed_list
 
 
-def divisors(num):
+def list_divisors(num):
+    # divisors cannot be greater than the number / 2
+    # it is only divisor if mod = 0
+    div_list = [x for x in range(num / 2 + 1) if x != 0 and num % x == 0]
 
-    return num
-
-
-def listAbundants(upperLim):
-
-    abundants = [divisors(x) for x in xrange(1, upperLim +1) if isAbundant(x)]
-
-    return abundants
+    return div_list
 
 
-def displayResult(sumDiv, upperLim):
+def is_abundant(div_dict):
 
-    print(sumDiv, upperLim)
+    for k, v in div_dict.items():
+        if sum(v) == k:
+            return True
+        else:
+            return False
+
+
+def display_result(upper_lim, div_list, result_list):
+
+    print(upper_lim)
+    print(div_list)
+    print(result_list)
 
 
 if __name__ == main():
