@@ -5,4 +5,4 @@ Problems from projectEuler.net.
 
 *Arndtware codes in C. 
 
-*weightedEights codes in Python2.7.
+*weightedEights codes in Python3.6.
