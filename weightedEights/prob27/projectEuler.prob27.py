@@ -1,3 +1,6 @@
+import math
+
+
 """
 
 
@@ -41,6 +44,18 @@ def main():
 def display_result(s):
 
     print(s)
+
+
+def is_prime(n):
+    # upper range of prime cannot be more than sqrt(n)
+    upper = int(math.sqrt(n))
+
+    # tests all i, should filter evens instead
+    for i in range(2, upper + 1):
+        if n % i == 0:
+            return False
+
+    return True
 
 
 if __name__ == main():
